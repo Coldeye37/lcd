@@ -161,11 +161,11 @@ namespace hetaolcd {
         let dataBuf = Buffer.create(1)
         addrBuf[0] = 129
         if (str == 0) {
-            dataBuf[0] = 1 + Math.round(((q - min) / (max - min)) * 10) 
+            dataBuf[0] = 1 + (10-Math.round(((q - min) / (max - min)) * 10))
         }
         else
         {
-            dataBuf[0] = 129 + Math.round(((q - min) / (max - min)) * 10) 
+            dataBuf[0] = 129 + (10-Math.round(((q - min) / (max - min)) * 10))
         }
         pins.i2cWriteBuffer(9, addrBuf.concat(dataBuf))
     }
